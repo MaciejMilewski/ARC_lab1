@@ -1,0 +1,8 @@
+<div>
+    <h1>Register</h1>
+    <form (ngSubmit)="onSubmit()" [formGroup]="registrationForm">
+        <input type="text" formControlName="email" id="login" class="fadeIn second" name="login" placeholder="login">
+        <input type="text" formControlName="password" id="password" class="fadeIn third" name="login" placeholder="password">
+        <input [disabled]="!registrationForm.valid" type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+</div>
