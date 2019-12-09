@@ -21,6 +21,13 @@ import { ShoeViewComponent } from './components/list-views/shoes/shoe-view/shoe-
 import { MainViewComponent } from './components/list-views/main-view/main-view.component';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import { KnifeFormComponent } from './components/list-views/knives/knife-form/knife-form.component';
+import { KnifeListFormComponent } from './components/list-views/knives/knife-list-form/knife-list-form.component';
+import { KnifeListViewComponent } from './components/list-views/knives/knife-list-view/knife-list-view.component';
+import { DvdListViewComponent } from './components/list-views/dvds/dvd-list-view/dvd-list-view.component';
+import { DvdListFormComponent } from './components/list-views/dvds/dvd-list-form/dvd-list-form.component';
+import { RopeListFormComponent } from './components/list-views/ropes/rope-list-form/rope-list-form.component';
+import { RopeListViewComponent } from './components/list-views/ropes/rope-list-view/rope-list-view.component';
 
 
 @NgModule({
@@ -36,7 +43,14 @@ import { HttpClientModule } from '@angular/common/http';
     ShoeListViewComponent,
     ShoeListFormComponent,
     ShoeViewComponent,
-    MainViewComponent
+    MainViewComponent,
+    KnifeFormComponent,
+    KnifeListFormComponent,
+    KnifeListViewComponent,
+    DvdListViewComponent,
+    DvdListFormComponent,
+    RopeListFormComponent,
+    RopeListViewComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
