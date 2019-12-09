@@ -1,0 +1,54 @@
+<div class="container">
+    <form (ngSubmit)="onSubmit()" [formGroup]="reactiveForm">
+        <div>
+            <label>Brand: </label>
+            <input type="text" formControlName="brand">
+
+        </div>
+
+        <div>
+            <label>Color: </label>
+            <input type="text" formControlName="color">
+
+        </div>
+
+        <div>
+            <label>Cut: </label>
+            <select formControlName="cut">
+                <option *ngFor="let c of cuts" [value]="c">{{c}}</option>
+              </select>
+
+        </div>
+        <div>
+            <label>Gender: </label>
+            <select formControlName="gender">
+                <option *ngFor="let g of genders" [value]="g">{{g}}</option>
+              </select>
+
+        </div>
+        <div>
+            <label>Material: </label>
+            <input type="text" formControlName="material">
+
+        </div>
+        <div>
+            <label>Model: </label>
+            <input type="text" formControlName="model">
+
+        </div>
+        <div>
+            <label>Size: </label>
+            <input type="number" formControlName="size">
+
+        </div>
+        <div>
+            <label>Usage: </label>
+            <select formControlName="usage">
+                <option *ngFor="let u of usages" [value]="u">{{u}}</option>
+              </select>
+
+        </div>
+
+        <button [disabled]="!reactiveForm.valid" type="submit">Save</button>
+    </form>
+</div>
