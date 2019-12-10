@@ -1,5 +1,28 @@
-<div>
-    <div>
-        {{shoes | json}}
-    </div>
+<div class="container">
+
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>BRAND</th>
+            <th>CUT</th>
+            <th>GENDER</th>
+            <th>MODEL</th>
+            <th>USAGE</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let shoe of shoes">
+                <td id="shoeId" [routerLink]="['/shoes/',shoe.id]">{{shoe?.id}}</td>
+                <td>{{shoe?.details.brand}}</td>
+                <td>{{shoe?.details.cut}}</td>
+                <td>{{shoe?.details.gender}}</td>
+                <td>{{shoe?.details.model}}</td>
+                <td>{{shoe?.details.usage}}</td>
+                <td (click)="deleteShoe(shoe.id)"><b>X</b></td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+</div>
 </div>

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="form-group; container">
     <form (ngSubmit)="onSubmit()" [formGroup]="reactiveForm">
         <div>
             <label>Brand: </label>
@@ -50,5 +50,6 @@
         </div>
 
         <button [disabled]="!reactiveForm.valid" type="submit">Save</button>
+        <button [disabled]="!reactiveForm.valid" type="button" (onClick)="patchValue()">Edit</button>
     </form>
 </div>

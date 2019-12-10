@@ -7,9 +7,6 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RopeViewComponent } from './rope-view/rope-view.component';
-import { KnifeViewComponent } from './knife-view/knife-view.component';
-import { DvdViewComponent } from './dvd-view/dvd-view.component';
 import { LoginComponent } from './components/authorization/login/login.component';
 import { RegistrationComponent } from './components/authorization/registration/registration.component';
 import { AuthorizationViewComponent } from './components/authorization/authorization-view/authorization-view.component';
@@ -21,21 +18,18 @@ import { ShoeViewComponent } from './components/list-views/shoes/shoe-view/shoe-
 import { MainViewComponent } from './components/list-views/main-view/main-view.component';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
-import { KnifeFormComponent } from './components/list-views/knives/knife-form/knife-form.component';
 import { KnifeListFormComponent } from './components/list-views/knives/knife-list-form/knife-list-form.component';
 import { KnifeListViewComponent } from './components/list-views/knives/knife-list-view/knife-list-view.component';
 import { DvdListViewComponent } from './components/list-views/dvds/dvd-list-view/dvd-list-view.component';
 import { DvdListFormComponent } from './components/list-views/dvds/dvd-list-form/dvd-list-form.component';
 import { RopeListFormComponent } from './components/list-views/ropes/rope-list-form/rope-list-form.component';
 import { RopeListViewComponent } from './components/list-views/ropes/rope-list-view/rope-list-view.component';
+import { ShoeListItemDetailsComponent } from './components/list-views/shoes/shoe-list-item-details/shoe-list-item-details.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RopeViewComponent,
-    KnifeViewComponent,
-    DvdViewComponent,
     LoginComponent,
     RegistrationComponent,
     AuthorizationViewComponent,
@@ -44,13 +38,13 @@ import { RopeListViewComponent } from './components/list-views/ropes/rope-list-v
     ShoeListFormComponent,
     ShoeViewComponent,
     MainViewComponent,
-    KnifeFormComponent,
     KnifeListFormComponent,
     KnifeListViewComponent,
     DvdListViewComponent,
     DvdListFormComponent,
     RopeListFormComponent,
-    RopeListViewComponent
+    RopeListViewComponent,
+    ShoeListItemDetailsComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
