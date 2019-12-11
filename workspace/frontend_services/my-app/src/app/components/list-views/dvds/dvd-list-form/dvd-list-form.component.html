@@ -1,1 +1,66 @@
-<p>dvd-list-form works!</p>
+<div class="form-group; container">
+    <form (ngSubmit)="onSubmit()" [formGroup]="reactiveForm">
+        <div>
+            <label>Title: </label>
+            <input type="text" formControlName="Title">
+           
+        </div>
+
+        <div>
+            <label>Genre: </label>
+            <input type="text" formControlName="genre">
+           
+        </div>
+
+        <div>
+            <label>Year: </label>
+            <input type="text" formControlName="year">
+
+        </div>
+
+        <div>
+            <label>Director: </label>
+            <input type="text" formControlName="director">
+
+        </div>
+
+        <div>
+            <label>Music: </label>
+            <input type="text" formControlName="music">
+
+        </div>
+
+        <div>
+            <label>Length: </label>
+            <input type="number" formControlName="length">
+
+        </div>
+
+        <div>
+            <label>Country: </label>
+            <input type="text" formControlName="country">
+
+        </div>
+
+        <div>
+            <label>Subtitles: </label>
+            <input type="text" formControlName="subtitles">
+
+        </div>
+
+        <div>
+            <label>Audio: </label>
+            <input type="text" formControlName="aduio">
+
+        </div>
+
+        <div>
+            <label>Producer: </label>
+            <input type="text" formControlName="producer">
+
+        </div>
+
+        <button [disabled]="!reactiveForm.valid" type="submit">Save</button>
+        <button [disabled]="!reactiveForm.valid" type="button" (onClick)="patchValue()">Edit</button>
+    </form>
+</div>
