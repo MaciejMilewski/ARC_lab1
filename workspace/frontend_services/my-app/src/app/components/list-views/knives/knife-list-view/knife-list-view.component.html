@@ -1,1 +1,37 @@
-<p>knife-list-view works!</p>
+<div class="container">
+    <h1>Browse Knives</h1>
+<table class="table">
+    <thead>
+        <th>ID</th>
+        <th>APPLICATION</th>
+        <th>DUALHAND</th>
+        <th>LENGTH</th>
+        <th>MATERIAL</th>
+        <th>MODEL</th>
+        <th>PRODUCER</th>
+        <th>STAINLESS</th>
+        <th>WARRANTY</th>
+        <th>WEIGHT</th>
+        <th>PRICE</th>
+        <th>DELETE</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let knife of knives; index as i" [routerLink]="['/knives/',knife.id]">
+            <td>{{i + 1}}</td>
+            <td>{{knife?.details.application}}</td>
+            <td>{{knife?.details.dualhand}}</td>
+            <td>{{knife?.details.length}}</td>
+            <td>{{knife?.details.material}}</td>
+            <td>{{knife?.details.model}}</td>
+            <td>{{knife?.details.producer}}</td>
+            <td>{{knife?.details.stainless}}</td>
+            <td>{{knife?.details.warranty}}</td>
+            <td>{{knife?.details.weight}}</td>
+            <td>{{knife?.details.price}}</td>
+            <td (click)="deleteKnife(knife.id)">X</td>
+        </tr>
+    </tbody>
+</table>
+
+</div>
+

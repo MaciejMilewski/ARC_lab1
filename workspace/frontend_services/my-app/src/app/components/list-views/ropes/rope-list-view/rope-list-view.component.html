@@ -1,1 +1,37 @@
-<p>rope-list-view works!</p>
+<div class="container">
+        <h1>Browse Ropes</h1>
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>MATERIAL</th>
+            <th>COLOR</th>
+            <th>ELONGATION</th>
+            <th>MELTING POINT</th>
+            <th>MODULUS TENACITY</th>
+            <th>SPECIFIC GRAVITY</th>
+            <th>STRENGTH TENACITY</th>
+            <th>UV RESISTANCE</th>
+            <th>TWIST TYPE</th>
+            <th>PRICE PER METER</th>
+            <th>DELETE</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rope of ropes; index as i" [routerLink]="['/ropes/',rope.id]">
+                <td>{{i + 1}}</td>
+                <td>{{rope?.details.material}}</td>
+                <td>{{rope?.details.color}}</td>
+                <td>{{rope?.details.elongation}}</td>
+                <td>{{rope?.details.melting_point}}</td>
+                <td>{{rope?.details.modulus_tenacity}}</td>
+                <td>{{rope?.details.specific_gravity}}</td>
+                <td>{{rope?.details.strength_tenacity}}</td>
+                <td>{{rope?.details.uv_resistance}}</td>
+                <td>{{rope?.details.twist_type}}</td>
+                <td>{{rope?.details.price_per_m}}</td>
+                <td (click)="deleteItem(rope.id)">X</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+

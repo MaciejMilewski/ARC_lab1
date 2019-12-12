@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ShoesService } from 'src/app/services/shoes.service';
-import { Location } from '@angular/common';
-import { IShoe } from '../models';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { IShoes } from 'src/app/components/model/ishoes';
 
 @Component({
   selector: 'app-shoe-list-item-details',
@@ -12,64 +10,22 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class ShoeListItemDetailsComponent implements OnInit {
 
-  shoe;
-  shoeId
-  isEdited = false;
-  reactiveForm: FormGroup;
-
-  constructor(
-    private shoesService: ShoesService,
-    private route: ActivatedRoute,
-    private location: Location,
-    private fb: FormBuilder) { }
-
-
-    getShoe(id: string) {
-      this.shoesService.getShoeById(id).subscribe(
-        (shoe: IShoe) => {
-          this.editShoe(shoe);
-          this.shoe = shoe;
-          console.log(shoe)
-        },
-        (err: any) => console.log(err)
-      );
-    }
-
-    editShoe(shoe: IShoe) {
-      
-      this.reactiveForm.patchValue({
-        brand: shoe.brand,
-        color: shoe.color,
-        cut: shoe.cut,
-        gender: shoe.gender,
-        material: shoe.material,
-        model: shoe.model,
-        size: shoe.size,
-        usage: shoe.usage  
-      });
-
-    }
+  shoes: IShoes;
+  shoesId = this.route.snapshot.params['id'];
+  edit: boolean = false;
   
 
+  constructor(
+    private ss: ShoesService,
+    private route: ActivatedRoute) { }
+
   ngOnInit() {
-    this.reactiveForm = this.fb.group({
-      brand: ['Jordan'],
-      color: [''],
-      cut: [''],
-      gender: [''],
-      material: [''],
-      model: [''],
-      size: [''],
-      usage: [''],
+    this.getShoes(this.shoesId);
+    
+  }
 
-    });
-
-
-
-    this.shoeId = this.route.snapshot.params['id'];
-
-    this.shoesService.getShoeById(this.shoeId).subscribe((data) =>
-      this.shoe = data);
+  getShoes(id: string) {
+    this.ss.getShoesById(id).subscribe((data) => this.shoes = data);
   }
 
 }

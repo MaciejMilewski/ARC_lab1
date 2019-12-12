@@ -1,1 +1,54 @@
-<p>rope-list-form works!</p>
+<div class="container">
+    <h1 *ngIf="ropeId == undefined">Add new Rope</h1>
+    <h1 *ngIf="ropeId != undefined">Edit Rope</h1>
+    <form [formGroup]="ropesForm">
+        <div>
+            <label for="material">Material</label>
+            <input type="text" formControlName="material" id="material" class="form-control">
+        </div>
+
+        <div>
+            <label for="color">Color</label>
+            <input type="text" formControlName="color" id="color" class="form-control">
+        </div>
+
+        <div>
+            <label for="elongation">Elongation</label>
+            <input type="number" formControlName="elongation" id="elongation" class="form-control">
+        </div>
+        <div>
+            <label for="meltingp">Melting Point</label>
+            <input type="number" formControlName="melting_point" id="meltingp" class="form-control">
+
+        </div>
+        <div>
+            <label for="modulust">Modulus Tenacity</label>
+            <input type="number" formControlName="modulus_tenacity" id="modulust" class="form-control">
+
+        </div>
+        <div>
+            <label for="specificg">Specific Gravity</label>
+            <input type="number" formControlName="specific_gravity" id="specificg" class="form-control">
+        </div>
+        <div>
+            <label for="strengtht">Strength Tenacity</label>
+            <input type="number" formControlName="strength_tenacity" id="strengtht" class="form-control">
+
+        </div>
+        <div>
+            <label for="uv">UV Resistance</label>
+            <input type="number" formControlName="uv_resistance" id="uv" class="form-control">
+        </div>
+        <div>
+            <label for="twistt">Twist Type: </label>
+            <input type="text" formControlName="twist_type" id="twistt" class="form-control">
+        </div>
+        <div>
+            <label for="price">Price Per Meter: </label>
+            <input type="number" formControlName="price_per_m" id="price" class="form-control">
+        </div>
+
+        <button *ngIf="ropeId == undefined" [disabled]="!ropesForm.valid" (click)="onSubmit()" class="btn btn-primary mt-1">Save</button>
+        <button *ngIf="ropeId != undefined" [disabled]="!ropesForm.valid" (click)="onEdit()" class="btn btn-primary mt-1">Edit</button>
+    </form>
+</div>

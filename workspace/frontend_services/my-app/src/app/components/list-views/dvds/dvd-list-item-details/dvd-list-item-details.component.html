@@ -1,0 +1,40 @@
+<button class="btn btn-primary mt-1" [routerLink]="['/dvds']"> BACK</button>
+<div class="container">
+    <h1>Item Details</h1>
+    <table class="table">
+        <thead>
+            <th>TITLE</th>
+            <th>GENRE</th>
+            <th>MUSIC</th>
+            <th>AUDIO</th>
+            <th>LENGTH</th>
+            <th>COUNTRY</th>
+            <th>DIRECTOR</th>
+            <th>PRODUCER</th>
+            <th>SUBTITLES</th>
+            <th>YEAR</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{dvd?.title}}</td>
+                <td>{{dvd?.genre}}</td>
+                <td>{{dvd?.music}}</td>
+                <td>{{dvd?.audio}}</td>
+                <td>{{dvd?.length}}</td>
+                <td>{{dvd?.country}}</td>
+                <td>{{dvd?.director}}</td>
+                <td>{{dvd?.producer}}</td>
+                <td>{{dvd?.subtitles}}</td>
+                <td>{{dvd?.year}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<div class="container">
+    <button (click)="edit=!edit" class="btn btn-primary mt-1">Edit Item</button>
+    <div *ngIf="edit">
+    <app-dvd-list-form [dvd]="dvd"></app-dvd-list-form>
+    </div>
+</div>
+

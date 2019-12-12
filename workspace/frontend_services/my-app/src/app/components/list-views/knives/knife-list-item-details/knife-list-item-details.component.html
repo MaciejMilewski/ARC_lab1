@@ -1,0 +1,38 @@
+<button class="btn btn-primary mt-1" [routerLink]="['/knives']"> BACK</button>
+<div class="container">
+    <h1>Item Details</h1>
+    <table class="table">
+        <thead>
+            <th>APPLICATION</th>
+            <th>DUALHAND</th>
+            <th>LENGTH</th>
+            <th>MATERIAL</th>
+            <th>MODEL</th>
+            <th>PRODUCER</th>
+            <th>STAINLESS</th>
+            <th>WARRANTY</th>
+            <th>WEIGHT</th>
+            <th>PRICE</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{knife?.application}}</td>
+                <td>{{knife?.dualhand}}</td>
+                <td>{{knife?.length}}</td>
+                <td>{{knife?.material}}</td>
+                <td>{{knife?.model}}</td>
+                <td>{{knife?.producer}}</td>
+                <td>{{knife?.stainless}}</td>
+                <td>{{knife?.warranty}}</td>
+                <td>{{knife?.weight}}</td>
+                <td>{{knife?.price}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <button (click)="edit=!edit" class="btn btn-primary mt-1">Edit Item</button>
+    <div *ngIf="edit">
+    <app-knife-list-form [knife]="knife"></app-knife-list-form>
+    </div>
+</div>

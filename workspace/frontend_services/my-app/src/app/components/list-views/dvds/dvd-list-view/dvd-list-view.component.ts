@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DvdsService } from 'src/app/services/dvds.service';
+import { IResponseList } from 'src/app/components/model/iresponselist';
 
 @Component({
   selector: 'app-dvd-list-view',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DvdListViewComponent implements OnInit {
 
-  constructor() { }
+  dvds: IResponseList;
+
+  constructor(private ds: DvdsService) { }
 
   ngOnInit() {
+    this.getList();
+  }
+
+  getList(){
+    this.ds.getAllDvds().subscribe((data) => this.dvds = data);
+  }
+
+  deleteDvd(id: string){
+    this.ds.deleteDvd(id);
+    window.location.reload();
   }
 
 }

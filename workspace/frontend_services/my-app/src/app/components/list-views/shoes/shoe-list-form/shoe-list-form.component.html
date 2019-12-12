@@ -1,55 +1,57 @@
 <div class="form-group; container">
-    <form (ngSubmit)="onSubmit()" [formGroup]="reactiveForm">
+    <h1 *ngIf="shoesId == undefined">Add new Shoes</h1>
+    <h1 *ngIf="shoesId != undefined">Edit Shoes</h1>
+    <form [formGroup]="shoesForm" >
         <div>
-            <label>Brand: </label>
-            <input type="text" formControlName="brand">
+            <label>Brand </label>
+            <input type="text" formControlName="brand" class="form-control">
 
         </div>
 
         <div>
-            <label>Color: </label>
-            <input type="text" formControlName="color">
+            <label>Color </label>
+            <input type="text" formControlName="color" class="form-control">
 
         </div>
 
         <div>
-            <label>Cut: </label>
-            <select formControlName="cut">
+            <label>Cut </label>
+            <select formControlName="cut" class="form-control">
                 <option *ngFor="let c of cuts" [value]="c">{{c}}</option>
               </select>
 
         </div>
         <div>
-            <label>Gender: </label>
-            <select formControlName="gender">
+            <label>Gender </label>
+            <select formControlName="gender" class="form-control">
                 <option *ngFor="let g of genders" [value]="g">{{g}}</option>
               </select>
 
         </div>
         <div>
-            <label>Material: </label>
-            <input type="text" formControlName="material">
+            <label>Material </label>
+            <input type="text" formControlName="material" class="form-control">
 
         </div>
         <div>
-            <label>Model: </label>
-            <input type="text" formControlName="model">
+            <label>Model </label>
+            <input type="text" formControlName="model" class="form-control">
 
         </div>
         <div>
-            <label>Size: </label>
-            <input type="number" formControlName="size">
+            <label>Size </label>
+            <input type="number" formControlName="size" class="form-control">
 
         </div>
         <div>
-            <label>Usage: </label>
-            <select formControlName="usage">
+            <label>Usage </label>
+            <select formControlName="usage" class="form-control">
                 <option *ngFor="let u of usages" [value]="u">{{u}}</option>
               </select>
 
         </div>
 
-        <button [disabled]="!reactiveForm.valid" type="submit">Save</button>
-        <button [disabled]="!reactiveForm.valid" type="button" (onClick)="patchValue()">Edit</button>
+        <button [disabled]="!shoesForm.valid" *ngIf="shoesId == undefined" (click)="onSubmit()" class="btn btn-primary mt-1">Save</button>
+        <button [disabled]="!shoesForm.valid" *ngIf="shoesId != undefined" (click)="onEdit()" class="btn btn-primary mt-1">Edit</button>
     </form>
 </div>

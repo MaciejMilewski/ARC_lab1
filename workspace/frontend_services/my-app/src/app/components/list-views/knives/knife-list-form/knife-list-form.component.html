@@ -1,1 +1,54 @@
-<p>knife-list-form works!</p>
+<div class="container">
+    <h1 *ngIf="knifeId == undefined">Add new Knife</h1>
+    <h1 *ngIf="knifeId != undefined">Edit Knife</h1>
+    <form [formGroup]="knivesForm">
+        <div>
+            <label>APPLICATION</label>
+            <input type="text" formControlName="application" class="form-control">
+        </div>
+        <div>
+            <label>DUALHAND</label>
+            <select formControlName="dualhand" class="form-control">
+                <option [value]="true">true</option>
+                <option [value]="false">false</option>
+            </select>
+        </div>
+        <div>
+            <label>LENGTH</label>
+            <input type="number" formControlName="length" class="form-control">
+        </div>
+        <div>
+            <label>MATERIAL</label>
+            <input type="text" formControlName="material" class="form-control">
+        </div>
+        <div>
+            <label>MODEL</label>
+            <input type="text" formControlName="model" class="form-control">
+        </div>
+        <div>
+            <label>PRICE</label>
+            <input type="number" formControlName="price" class="form-control">
+        </div>
+        <div>
+            <label>PRODUCER</label>
+            <input type="text" formControlName="producer" class="form-control">
+        </div>
+        <div>
+            <label>STAINLESS</label>
+            <select formControlName="stainless" class="form-control">
+                <option [value]="true">true</option>
+                <option [value]="false">false</option>
+            </select>
+        </div>
+        <div>
+            <label>WARRANTY</label>
+            <input type="text" formControlName="warranty" class="form-control">
+        </div>
+        <div>
+            <label>WEIGHT</label>
+            <input type="number" formControlName="weight" class="form-control">
+        </div>
+        <button [disabled]="!knivesForm.valid" *ngIf="knifeId == undefined" (click)="onSubmit()" class="btn btn-primary mt-1">Save</button>
+        <button [disabled]="!knivesForm.valid" *ngIf="knifeId != undefined" (click)="onEdit()" class="btn btn-primary mt-1">Edit</button>
+    </form>
+</div>
