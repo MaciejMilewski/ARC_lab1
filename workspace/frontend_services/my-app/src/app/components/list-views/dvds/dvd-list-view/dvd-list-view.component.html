@@ -1,1 +1,37 @@
-<p>dvd-list-view works!</p>
+<div class="container">
+    <h1>Browse DVD's</h1>
+    <table class="table">
+        <thead>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>GENRE</th>
+            <th>MUSIC</th>
+            <th>AUDIO</th>
+            <th>LENGTH</th>
+            <th>COUNTRY</th>
+            <th>DIRECTOR</th>
+            <th>PRODUCER</th>
+            <th>SUBTITLES</th>
+            <th>YEAR</th>
+            <th>DELETE</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let dvd of dvds; index as i" [routerLink]="['/dvds/',dvd.id]">
+                <td>{{i + 1}}</td>
+                <td>{{dvd?.details.title}}</td>
+                <td>{{dvd?.details.genre}}</td>
+                <td>{{dvd?.details.music}}</td>
+                <td>{{dvd?.details.audio}}</td>
+                <td>{{dvd?.details.length}}</td>
+                <td>{{dvd?.details.country}}</td>
+                <td>{{dvd?.details.director}}</td>
+                <td>{{dvd?.details.producer}}</td>
+                <td>{{dvd?.details.subtitles}}</td>
+                <td>{{dvd?.details.year}}</td>
+                <td (click)="deleteDvd(dvd.id)">X</td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+

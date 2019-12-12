@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { map, catchError } from 'rxjs/operators';
 import { Observable, throwError } from 'rxjs';
+import { IResponseList } from '../components/model/iresponselist';
+import { IShoes } from '../components/model/ishoes';
 
 
 const httpOptions = {
@@ -20,23 +22,23 @@ export class ShoesService {
   constructor(public http: HttpClient) { }
 
 
-  getAllShoes() {
-    return this.http.get(url)
+  getAllShoes(): Observable<IResponseList> {
+    return this.http.get<IResponseList>(url)
   }
 
-  getShoeById(id: string) {
-    return this.http.get(url + `?id=${id}`)
+  getShoesById(id: string): Observable<IShoes> {
+    return this.http.get<IShoes>(url + `?id=${id}`)
   }
 
-  addShoe(
-    brand,
-    color,
-    cut,
-    gender,
-    material,
-    model,
-    size,
-    usage,
+  addShoes(
+    brand: string,
+    color: string,
+    cut: string,
+    gender: string,
+    material: string,
+    model: string,
+    size: number,
+    usage: string,
   ) {
     return this.http.post(url + `?brand=${brand}&color=${color}&cut=${cut}&gender=${gender}&material=${material}&model=${model}&size=${size}&usage=${usage}`, {
       'Content-Type': 'application/json'
@@ -55,7 +57,7 @@ export class ShoesService {
   }
 
 
-  deleteShoe(id: string) {
+  deleteShoes(id: string) {
     return this.http.delete(url + `?id=${id}`, httpOptions).subscribe(
       (val) => {
         console.log("POST delete call successful value returned in body",
@@ -69,5 +71,29 @@ export class ShoesService {
       })
   }
 
+  updateShoes(
+    brand: string,
+    color: string,
+    cut: string,
+    gender: string,
+    material: string,
+    model: string,
+    size: number,
+    usage: string,
+    id:string) {
+    return this.http.put(url + `?brand=${brand}&color=${color}&cut=${cut}&gender=${gender}&material=${material}&model=${model}&size=${size}&usage=${usage}&id=${id}`, {
+      'Content-Type': 'application/json'
+    }).subscribe(
+      (val) => {
+        console.log("PUT call successful value returned in body",
+          val);
+      },
+      response => {
+        console.log("PUT call in error", response);
+      },
+      () => {
+        console.log("The PUT observable is now completed.");
+      });
 
+  }
 }

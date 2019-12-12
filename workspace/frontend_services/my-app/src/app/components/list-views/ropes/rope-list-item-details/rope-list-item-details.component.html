@@ -1,0 +1,38 @@
+<button class="btn btn-primary mt-1" [routerLink]="['/ropes']"> BACK</button>
+<div class="container">
+    <h1>Item Details</h1>
+    <table class="table">
+        <thead>
+            <th>MATERIAL</th>
+            <th>COLOR</th>
+            <th>ELONGATION</th>
+            <th>MELTING POINT</th>
+            <th>MODULUS TENACITY</th>
+            <th>SPECIFIC GRAVITY</th>
+            <th>STRENGTH TENACITY</th>
+            <th>UV RESISTANCE</th>
+            <th>TWIST TYPE</th>
+            <th>PRICE PER METER</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{rope?.material}}</td>
+                <td>{{rope?.color}}</td>
+                <td>{{rope?.elongation}}</td> 
+                <td>{{rope?.melting_point}} </td>
+                <td>{{rope?.modulus_tenacity}}</td>
+                <td>{{rope?.specific_gravity}}</td>
+                <td>{{rope?.strength_tenacity}}</td>
+                <td>{{rope?.uv_resistance}}</td>
+                <td>{{rope?.twist_type}}</td>
+                <td>{{rope?.price_per_m}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <button (click)="edit=!edit" class="btn btn-primary mt-1">Edit Item</button>
+    <div *ngIf="edit">
+    <app-rope-list-form [rope]="rope"></app-rope-list-form>
+    </div>
+</div>

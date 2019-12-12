@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { ShoesService } from 'src/app/services/shoes.service';
 import { Router } from '@angular/router';
+import { IResponseList } from 'src/app/components/model/iresponselist';
 
 @Component({
   selector: 'app-shoe-list-view',
@@ -9,23 +10,22 @@ import { Router } from '@angular/router';
 })
 export class ShoeListViewComponent implements OnInit {
 
-  shoes?: any = [];
-  constructor(private shoesService: ShoesService,
+  shoes: IResponseList;
+  constructor(private ss: ShoesService,
     private router: Router) { }
 
-  getAllshoesFromService() {
-    this.shoesService.getAllShoes().subscribe((data) =>
+  getShoes() {
+    this.ss.getAllShoes().subscribe((data) =>
       this.shoes = data);
   }
 
-  deleteShoe(shoeId: string) {
-    this.shoesService.deleteShoe(shoeId);
-    // this.router.navigate(['/shoes']);
+  deleteShoe(id: string) {
+    this.ss.deleteShoes(id);
     window.location.reload()
   }
 
   ngOnInit() {
-    this.getAllshoesFromService();
+    this.getShoes();
   }
 
 }

@@ -1,28 +1,32 @@
 <div class="container">
-
+        <h1>Browse Shoes</h1>
     <table class="table">
         <thead>
             <th>ID</th>
             <th>BRAND</th>
+            <th>COLOR</th>
             <th>CUT</th>
             <th>GENDER</th>
+            <th>MATERIAL</th>
             <th>MODEL</th>
+            <th>SIZE</th>
             <th>USAGE</th>
+            <th>DELETE</th>
         </thead>
         <tbody>
-            <tr *ngFor="let shoe of shoes">
-                <td id="shoeId" [routerLink]="['/shoes/',shoe.id]">{{shoe?.id}}</td>
+            <tr *ngFor="let shoe of shoes; index as i" [routerLink]="['/shoes/',shoe.id]">
+                <td>{{i + 1}}</td>
                 <td>{{shoe?.details.brand}}</td>
+                <td>{{shoe?.details.color}}</td>
                 <td>{{shoe?.details.cut}}</td>
                 <td>{{shoe?.details.gender}}</td>
+                <td>{{shoe?.details.material}}</td>
                 <td>{{shoe?.details.model}}</td>
+                <td>{{shoe?.details.size}}</td>
                 <td>{{shoe?.details.usage}}</td>
-                <td (click)="deleteShoe(shoe.id)"><b>X</b></td>
+                <td (click)="deleteShoe(shoe.id)">X</td>
             </tr>
         </tbody>
     </table>
 
-
-
-</div>
 </div>

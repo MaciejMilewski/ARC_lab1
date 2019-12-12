@@ -1,78 +1,37 @@
-<table class="table">
-    <thead>
-        <th>ID</th>
-        <th>BRAND</th>
-        <th>COLOR</th>
-        <th>CUT</th>
-        <th>GENDER</th>
-        <th>MATERIAL</th>
-        <th>MODEL</th>
-        <th>SIZE</th>
-        <th>USAGE</th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>{{shoeId}}</td>
-            <td>{{shoe.brand}}</td>
-            <td>{{shoe.color}}</td>
-            <td>{{shoe.cut}}</td>
-            <td>{{shoe.gender}}</td>
-            <td>{{shoe.material}}</td>
-            <td>{{shoe.model}}</td>
-            <td>{{shoe.size}}</td>
-            <td>{{shoe.usage}}</td>
+<button class="btn btn-primary mt-1" [routerLink]="['/shoes']"> BACK</button>
+<div class="container">
+    <table class="table">
+        <thead>
+            <th>BRAND</th>
+            <th>COLOR</th>
+            <th>CUT</th>
+            <th>GENDER</th>
+            <th>MATERIAL</th>
+            <th>MODEL</th>
+            <th>SIZE</th>
+            <th>USAGE</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{shoes?.brand}}</td>
+                <td>{{shoes?.color}}</td>
+                <td>{{shoes?.cut}}</td>
+                <td>{{shoes?.gender}}</td>
+                <td>{{shoes?.material}}</td>
+                <td>{{shoes?.model}}</td>
+                <td>{{shoes?.size}}</td>
+                <td>{{shoes?.usage}}</td>
 
-        </tr>
-    </tbody>
-</table>
-<button (click)="isEdited=!isEdited">Edit</button>
-
-<div *ngIf="isEdited">
-
-    {{isEdited | json}}
-
-    <div class="form-group; container">
-        <form (ngSubmit)="onSubmit()" [formGroup]="reactiveForm">
-            <div>
-                <label>Brand: </label>
-                <input type="text" formControlName="brand">
-            </div>
-            <div>
-                <label>Color: </label>
-                <input type="text" formControlName="color">
-            </div>
-            <div>
-                <label>Cut: </label>
-                <select formControlName="cut">
-                        <option *ngFor="let c of cuts" [value]="c">{{c}}</option>
-                      </select>
-            </div>
-            <div>
-                <label>Gender: </label>
-                <select formControlName="gender">
-                        <option *ngFor="let g of genders" [value]="g">{{g}}</option>
-                      </select>
-            </div>
-            <div>
-                <label>Material: </label>
-                <input type="text" formControlName="material">
-            </div>
-            <div>
-                <label>Model: </label>
-                <input type="text" formControlName="model">
-            </div>
-            <div>
-                <label>Size: </label>
-                <input type="number" formControlName="size">
-            </div>
-            <div>
-                <label>Usage: </label>
-                <select formControlName="usage">
-                        <option *ngFor="let u of usages" [value]="u">{{u}}</option>
-                      </select>
-            </div>
-            <button [disabled]="!reactiveForm.valid" type="submit">Save</button>
-            <button type="button" (onClick)="getShoe(shoeId)">Edit</button>
-        </form>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <button (click)="edit=!edit" class="btn btn-primary mt-1">Edit Item</button>
+    <div *ngIf="edit">
+    <app-shoe-list-form [shoes]="shoes"></app-shoe-list-form>
     </div>
 </div>
+
+
+
