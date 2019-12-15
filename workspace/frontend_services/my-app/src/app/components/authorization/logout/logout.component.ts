@@ -2,23 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-main-view',
-  templateUrl: './main-view.component.html',
-  styleUrls: ['./main-view.component.scss']
+  selector: 'app-logout',
+  templateUrl: './logout.component.html',
+  styleUrls: ['./logout.component.scss']
 })
-export class MainViewComponent implements OnInit {
-
-  
+export class LogoutComponent implements OnInit {
 
   constructor(private auth: AuthService) { }
 
+  ngOnInit() {
+  }
 
   logOut() {
     this.auth.logOut()
-  }
-
-
-  ngOnInit() {
   }
 
 }

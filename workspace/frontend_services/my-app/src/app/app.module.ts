@@ -32,6 +32,9 @@ import { RopeViewComponent } from './components/list-views/ropes/rope-view/rope-
 import { DvdListItemDetailsComponent } from './components/list-views/dvds/dvd-list-item-details/dvd-list-item-details.component';
 import { KnifeListItemDetailsComponent } from './components/list-views/knives/knife-list-item-details/knife-list-item-details.component';
 
+import { AuthService } from './services/auth.service';
+import { LogoutComponent } from './components/authorization/logout/logout.component';
+
 
 @NgModule({
   declarations: [
@@ -53,10 +56,12 @@ import { KnifeListItemDetailsComponent } from './components/list-views/knives/kn
     DvdViewComponent,
     RopeListFormComponent,
     RopeListViewComponent,
-    RopeViewComponent,
+    ShoeListItemDetailsComponent,
     RopeListItemDetailsComponent,
+    RopeViewComponent,
     DvdListItemDetailsComponent,
-    KnifeListItemDetailsComponent
+    KnifeListItemDetailsComponent,
+    LogoutComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
@@ -66,9 +71,9 @@ import { KnifeListItemDetailsComponent } from './components/list-views/knives/kn
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

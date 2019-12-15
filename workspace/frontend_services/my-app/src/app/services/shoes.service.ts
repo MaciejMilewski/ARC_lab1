@@ -80,7 +80,7 @@ export class ShoesService {
     model: string,
     size: number,
     usage: string,
-    id:string) {
+    id: string) {
     return this.http.put(url + `?brand=${brand}&color=${color}&cut=${cut}&gender=${gender}&material=${material}&model=${model}&size=${size}&usage=${usage}&id=${id}`, {
       'Content-Type': 'application/json'
     }).subscribe(

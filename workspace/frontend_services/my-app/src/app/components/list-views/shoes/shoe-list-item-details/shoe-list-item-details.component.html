@@ -29,9 +29,6 @@
 <div class="container">
     <button (click)="edit=!edit" class="btn btn-primary mt-1">Edit Item</button>
     <div *ngIf="edit">
-    <app-shoe-list-form [shoes]="shoes"></app-shoe-list-form>
+        <app-shoe-list-form [shoes]="shoes"></app-shoe-list-form>
     </div>
 </div>
-
-
-

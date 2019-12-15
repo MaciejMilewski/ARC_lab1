@@ -1,21 +1,20 @@
 <div class="container">
     <div>
-        <ul>
-            <li >
-                <a routerLinkActive="active" [routerLink]="['/userProfile']">My Profile</a>
-            </li>
-            <li >
+        <ul class="list-group">
+
+            <li class="list-group-item list-group-item-action">
                 <a routerLinkActive="active" [routerLink]="['/shoes']">Shoes</a>
             </li>
-            <li >
+            <li class="list-group-item list-group-item-action">
                 <a routerLinkActive="active" [routerLink]="['/knives']">Knives</a>
             </li>
-            <li >
+            <li class="list-group-item list-group-item-action">
                 <a routerLinkActive="active" [routerLink]="['/ropes']">Ropes</a>
             </li>
-            <li >
+            <li class="list-group-item list-group-item-action">
                 <a routerLinkActive="active" [routerLink]="['/dvds']">DVD's</a>
             </li>
+            <app-logout></app-logout>
         </ul>
     </div>
 </div>

@@ -12,20 +12,21 @@ import { DvdViewComponent } from './components/list-views/dvds/dvd-view/dvd-view
 import { KnifeListItemDetailsComponent } from './components/list-views/knives/knife-list-item-details/knife-list-item-details.component';
 import { RopeListItemDetailsComponent } from './components/list-views/ropes/rope-list-item-details/rope-list-item-details.component';
 import { DvdListItemDetailsComponent } from './components/list-views/dvds/dvd-list-item-details/dvd-list-item-details.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const routes: Routes = [
-  {path: '', component: AuthorizationViewComponent},
-  {path: 'userProfile', component: UserProfileComponent},
-  {path: 'mainView', component: MainViewComponent},
-  {path: 'shoes', component: ShoeViewComponent},
-  {path: 'knives', component: KnifeViewComponent},
-  {path: 'ropes', component: RopeViewComponent},
-  {path: 'dvds', component: DvdViewComponent},
-  {path: 'shoes/:id', component: ShoeListItemDetailsComponent},
-  {path: 'knives/:id', component: KnifeListItemDetailsComponent},
-  {path: 'ropes/:id', component: RopeListItemDetailsComponent},
-  {path: 'dvds/:id', component: DvdListItemDetailsComponent},
+  { path: '', component: AuthorizationViewComponent },
+  { path: 'auth', component: AuthorizationViewComponent },
+  { path: 'mainView', component: MainViewComponent,canActivate: [AuthGuard]  },
+  { path: 'shoes', component: ShoeViewComponent, canActivate: [AuthGuard] },
+  { path: 'knives', component: KnifeViewComponent, canActivate: [AuthGuard] },
+  { path: 'ropes', component: RopeViewComponent, canActivate: [AuthGuard] },
+  { path: 'dvds', component: DvdViewComponent, canActivate: [AuthGuard] },
+  { path: 'shoes/:id', component: ShoeListItemDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'knives/:id', component: KnifeListItemDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'ropes/:id', component: RopeListItemDetailsComponent, canActivate: [AuthGuard] },
+  { path: 'dvds/:id', component: DvdListItemDetailsComponent, canActivate: [AuthGuard] },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

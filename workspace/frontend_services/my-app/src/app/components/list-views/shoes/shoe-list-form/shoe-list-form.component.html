@@ -1,7 +1,7 @@
 <div class="form-group; container">
     <h1 *ngIf="shoesId == undefined">Add new Shoes</h1>
     <h1 *ngIf="shoesId != undefined">Edit Shoes</h1>
-    <form [formGroup]="shoesForm" >
+    <form [formGroup]="shoesForm">
         <div>
             <label>Brand </label>
             <input type="text" formControlName="brand" class="form-control">

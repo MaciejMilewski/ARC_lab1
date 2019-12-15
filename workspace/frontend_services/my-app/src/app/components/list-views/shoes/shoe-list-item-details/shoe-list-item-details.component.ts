@@ -28,4 +28,7 @@ export class ShoeListItemDetailsComponent implements OnInit {
     this.ss.getShoesById(id).subscribe((data) => this.shoes = data);
   }
 
+
+
+
 }
